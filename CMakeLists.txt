@@ -13,7 +13,7 @@ include_directories(${INCLUDE_DIR})
 
 add_executable (matrix src/main.cpp)
 
-# add_executable(matrix_gen src/matrix_gen.cpp)
+add_executable(matrix_gen src/matrix_gen.cpp)
 
 if(BUILD_TESTING)
   include(CTest)
