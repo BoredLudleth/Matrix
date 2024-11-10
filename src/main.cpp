@@ -31,7 +31,7 @@ int main() {
   matrix<float> matrix_test{size, size, matrix_data};
 
 #ifdef FORMAT_SUPPORT
-  std::cout << std::format("{}\n", matrix_test.det());
+  std::cout << std::format("{}\n", round(matrix_test.det()));
 #else
   float* ans = new float;
   std::modf(matrix_test.det(), ans);

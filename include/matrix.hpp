@@ -152,11 +152,11 @@ class matrix final : private two_dim_array<T> {
 
     for (int k = 0; k < x - 1; ++k) {
       // need to add swaps with lower
-      if (tmp[k][k] == 0) {
+      if (k >= 1 && tmp[k - 1][k - 1] == 0) {
         int i = 0;
-        for (i = k + 1; i < x; ++i) {
-          if (data[i][k] != 0) {
-            tmp.swap_rows(k, i);
+        for (i = k; i < x; ++i) {
+          if (tmp[i][k - 1] != 0) {
+            tmp.swap_rows(k - 1, i);
             break;
           }
         }
@@ -166,7 +166,7 @@ class matrix final : private two_dim_array<T> {
 
       for (int i = k + 1; i < x; ++i) {
         for (int j = k + 1; j < x; ++j) {
-          if (k != 0)
+          if (k > 0)
             tmp[i][j] = (tmp[i][j] * tmp[k][k] - tmp[i][k] * tmp[k][j]) /
                         tmp[k - 1][k - 1];
           else
@@ -174,7 +174,6 @@ class matrix final : private two_dim_array<T> {
         }
       }
     }
-
     return tmp[x - 1][x - 1];
   }
 
