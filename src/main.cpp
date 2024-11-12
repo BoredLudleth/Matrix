@@ -33,11 +33,7 @@ int main() {
 #ifdef FORMAT_SUPPORT
   std::cout << std::format("{}\n", round(matrix_test.det()));
 #else
-  float* ans = new float;
-  std::modf(matrix_test.det(), ans);
-  std::cout.setf(std::ios_base::fixed);
-  std::cout << *ans << std::endl;
-  delete ans;
+  std::cout << round(matrix_test.det()) << std::endl;
 #endif
 
 #ifndef NDEBUG
