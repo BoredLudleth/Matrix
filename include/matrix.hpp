@@ -124,9 +124,7 @@ class matrix final : private two_dim_array<T> {
   void swap_rows(int i, int j) {
     if (i == j) return;
 
-    if (std::max(i, j) - std::min(i, j) % 2 == 1) {
-      negate_row(i);
-    }
+    negate_row(i);
 
     std::swap(data[i], data[j]);
   }

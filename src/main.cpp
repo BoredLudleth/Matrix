@@ -23,13 +23,14 @@ int main() {
   int size = 0;
   std::cin >> size;
 
-  float* matrix_data = new float[size * size];
+  double* matrix_data = new double[size * size];
   for (int i = 0; i < size * size; ++i) {
     std::cin >> matrix_data[i];
   }
 
-  matrix<float> matrix_test{size, size, matrix_data};
+  matrix<double> matrix_test{size, size, matrix_data};
 
+  std::cout << matrix_test.det() << "\n";
 #ifdef FORMAT_SUPPORT
   std::cout << std::format("{}\n", round(matrix_test.det()));
 #else

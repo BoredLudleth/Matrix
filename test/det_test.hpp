@@ -1,5 +1,6 @@
 #pragma once
 #include <gtest/gtest.h>
+#include <cmath>
 
 #include "matrix.hpp"
 
@@ -48,7 +49,7 @@ TEST(MinusEyeTest, MatrixTest) {
 
   EXPECT_EQ(matrix_1.det(), -1);
   EXPECT_EQ(matrix_2.det(), -1);
-  EXPECT_EQ(matrix_3.det(), -1);
+  EXPECT_EQ(matrix_3.det(), 1);
 }
 
 TEST(RandomDetTest, MatrixTest) {
@@ -63,5 +64,21 @@ TEST(RandomDetTest, MatrixTest) {
   EXPECT_EQ(matrix_1.det(), 27);
   EXPECT_EQ(matrix_2.det(), 36);
   EXPECT_EQ(matrix_3.det(), -3);
+}
+TEST(SignProblemTest, MatrixTest) {
+  int arr_1[9] = {0, 0, 1, 0, 1, 0, 1, 0, 0};
+  matrix<int> matrix_1{3, 3, arr_1};
+
+  EXPECT_EQ(matrix_1.det(), -1);
+}
+
+TEST(RoundProblemTest, MatrixTest) {
+  double arr_1[25] = {70, 753, 1077, 823, 19, 81, 402, 526, 460, 24, 
+                   -16, -184, -263, -198, -5, -105, -961, -1363, -1068, -27, 
+                   -120, -601, -784, -682, -36};
+  
+  matrix<double> matrix_1{5, 5, arr_1};
+
+  EXPECT_EQ(round(matrix_1.det()), 88);
 }
 }  // namespace matrix_space
