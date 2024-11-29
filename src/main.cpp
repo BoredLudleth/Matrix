@@ -30,7 +30,6 @@ int main() {
 
   matrix<double> matrix_test{size, size, matrix_data};
 
-  std::cout << matrix_test.det() << "\n";
 #ifdef FORMAT_SUPPORT
   std::cout << std::format("{}\n", round(matrix_test.det()));
 #else
