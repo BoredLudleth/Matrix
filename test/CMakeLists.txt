@@ -13,3 +13,6 @@ add_custom_command(TARGET matrix_test
                    POST_BUILD 
                    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
                    COMMAND ${CMAKE_CTEST_COMMAND})
+
+add_test(NAME matrix_end2end
+         COMMAND ${CMAKE_COMMAND} -E echo "Запуск e2e тестов..." && bash ${CMAKE_CURRENT_SOURCE_DIR}/run_e2e_tests.sh)

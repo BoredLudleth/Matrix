@@ -22,18 +22,19 @@ int main() {
   using namespace matrix_space;
   int size = 0;
   std::cin >> size;
-
-  double* matrix_data = new double[size * size];
+  int sum = 0;
+  int* matrix_data = new int[size * size];
   for (int i = 0; i < size * size; ++i) {
     std::cin >> matrix_data[i];
+    sum += abs(matrix_data[i]);
   }
 
-  matrix<double> matrix_test{size, size, matrix_data};
+  matrix<int> matrix_test{size, size, matrix_data};
 
 #ifdef FORMAT_SUPPORT
-  std::cout << std::format("{}\n", round(matrix_test.det()));
+  std::cout << std::format("{}\n", matrix_test.det());
 #else
-  std::cout << round(matrix_test.det()) << std::endl;
+  std::cout << matrix_test.det() << std::endl;
 #endif
 
 #ifndef NDEBUG

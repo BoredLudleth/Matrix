@@ -22,12 +22,12 @@ int main() {
 
   for (int i = 0; i < size; ++i) {
     for (int j = i + 1; j < size; ++j) {
-      result[i][j] = rand() % 10;
+      result[i][j] = rand() % 3;
     }
   }
 
-  for (int i = 0; i < 100; ++i) {
-    int command = rand() % 10;
+  for (int i = 0; i < 50; ++i) {
+    int command = rand() % 5;
 
     if (command == 0) {
       result.transpose();
